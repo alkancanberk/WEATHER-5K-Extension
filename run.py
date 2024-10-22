@@ -99,6 +99,12 @@ if __name__ == '__main__':
                         help='hidden layer dimensions of projector (List)')
     parser.add_argument('--p_hidden_layers', type=int, default=2, help='number of hidden layers in projector')
 
+    # for S-Mamba
+    parser.add_argument('--use_norm', type=int, default=True, help='use norm and denorm')
+    parser.add_argument('--class_strategy', type=str, default='projection', help='projection/average/cls_token')
+    parser.add_argument('--d_state', type=int, default=32, help='parameter of Mamba Block')
+
+
 
     args = parser.parse_args()
     args.use_gpu = True if torch.cuda.is_available() and args.use_gpu else False

@@ -2,7 +2,7 @@ import os
 import torch
 from models import Autoformer, Transformer, TimesNet, Nonstationary_Transformer, DLinear, FEDformer, \
     Informer, LightTS, Reformer, ETSformer, Pyraformer, PatchTST, MICN, Crossformer, FiLM, iTransformer, \
-    Koopa, TiDE, FreTS, Corrformer, Mamba
+    Koopa, TiDE, FreTS, Corrformer, Mamba, S_Mamba
 
 
 class Exp_Basic(object):
@@ -30,6 +30,7 @@ class Exp_Basic(object):
             'FreTS': FreTS,
             'Corrformer': Corrformer,
             'Mamba': Mamba,
+            'S_Mamba': S_Mamba,
         }
         self.device = self._acquire_device()
         self.model = self._build_model().to(self.device)

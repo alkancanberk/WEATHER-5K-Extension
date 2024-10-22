@@ -1,9 +1,9 @@
 #!/bin/bash
 
-model_name=SMamba
-seq_len=48
+model_name=S_Mamba
+seq_len=96
 
-pred_len_arr=(72 )
+pred_len_arr=(96 )
 gpu_arr=(0 )
 
 for ((i=0; i<${#pred_len_arr[@]}; i++))
@@ -25,18 +25,16 @@ do
     --e_layers 2 \
     --d_layers 1 \
     --enc_in 5 \
-    --d_ff 16 \
-    --c_out 5 \
-    --d_model 128 \
+    --d_ff 512 \
+    --c_out 21 \
+    --d_model 512 \
     --des 'Exp' \
     --itr 1 \
     --num_workers 4 \
     --target 'TMP' \
-    --train_steps 300000 \
-    --val_steps 300000 \
+    --train_steps 1000 \
+    --val_steps 1000 \
     --batch_size 1024 \
     --patience 3 \
-    --gpu $gpu \
-    --lradj cosine_iter \
-    --inverse  
+    --gpu $gpu
 done
